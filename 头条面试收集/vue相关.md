@@ -1,6 +1,5 @@
 #### Vue computed的原理是什么？为什么避免在computed里面进行修改数据的操作？（答出懒求值应该就可以，实际是特殊watcher）
-
-https://juejin.cn/post/6844903606676799501
+总结：在对 computed 的属性进行 watcher 的时候，传入一个 lazy 为 true 的参数，在 watcher 内部将 lazy 值赋值给 dirty 属性，在获取 computed 属性的时候，如果 dirty 为 true，则重新执行被 defineComputed 改写过的 get 方法，获取最新值，如果 dirty 为 false，则获取上一次 watcher 实例的 value 值，这里就实现了缓存。对于 dirty 值更改为 true 的时机，则是在 props 和 data 等被 defineProperty 劫持改写的 set 方法内，每当数据发生变化，则通过 defineReactive$$1 方法最后执行 update 方法更新 dirty 值。
 
 
 #### v-if和v-for能不能写在同一个标签中？
