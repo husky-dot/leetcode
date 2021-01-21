@@ -88,3 +88,48 @@ https://juejin.cn/post/6844903663459106829
 #### require，import区别？
 https://www.zhihu.com/question/56820346
 
+
+
+#### 手写一个Promise
+
+```
+ class Promise2 {
+     succeed = null
+     fail = null
+     state = 'pending'
+
+     constructor(fn) {
+         fn(this.resolve.bind(this), this.reject.bind(this))
+     }
+     resolve(result) {
+         setTimeout(() => {
+         this.state = 'fulfilled'
+         this.succeed(result)
+         })
+     }
+
+     reject(reason) {
+         setTimeout(() => {
+         this.state = 'rejected'
+         this.fail(reason)
+         })
+     }
+
+     then(succeed, fail) {
+         this.succeed = succeed
+         this.fail = fail
+     }
+ }
+```
+### 背代码，完整版
+
+
+```
+ let request = new XMLHttpRequest()
+ request.open('GET', '/a/b/c?name=ff', true);
+ request.onreadystatechange = function () {
+   if(request.readyState === 4 && request.status === 200) {
+     console.log(request.responseText);
+   }};
+ request.send();
+```
