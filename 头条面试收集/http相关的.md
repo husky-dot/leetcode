@@ -82,3 +82,19 @@ https://blog.csdn.net/qq_42044542/article/details/105349667
 #### 说一下cdn的原理
 
 https://juejin.cn/post/6844904197792628749
+
+
+
+
+### TCP 四次挥手
+
+https://www.bilibili.com/video/BV1C5411Y7dG?from=search&seid=4997250634902508640
+
+
+### 简述 HTTP1.0/1.1/2.0 的区别
+
+1.0 短连接  
+1.1 长连接
+2.0 长连接 + 多路复用
+
+
