@@ -98,3 +98,39 @@ https://www.bilibili.com/video/BV1C5411Y7dG?from=search&seid=4997250634902508640
 2.0 长连接 + 多路复用
 
 
+ ### Restful API
+
+ * 一种新的 API 设计方法 (早已推广使用)
+ * 传统 API 设计：把每个 url 当做一个功能
+ * Restful API 设计：把每个 url 当做一个唯一的资源
+
+
+
+### 如何设计成一个资源？
+
+* 尽量不用 url参数
+* 用 method 表示操作类型
+
+
+
+#### Request Headers
+
+* Accept 浏览器可以接收的数据格式
+* Accept-Encoding 浏览器可以接收的压缩算法，如 gzip。
+* Accept-Languange 浏览器可接收的语言，如 zh-CN
+* Conncetion: keep-alive  一次 TCP 连接重复使用
+* cookie
+* Host
+* UA
+  
+
+### Response Headers
+
+* Content-type 返回数据格式，如 application/json
+* Content-length 返回数据大小，多少字节
+* Content-Encoding 返回数据的压缩算法，如 gzip
+
+
+
+
+

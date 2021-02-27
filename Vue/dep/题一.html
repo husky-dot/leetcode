@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    let state = { count: 0 };
+    let active
+    function defineReactive (obj) {
+      for (let key in obj) {
+        let value = obj[key]; // 对象对应的值
+        let dep = []
+        Object.defineProperty(obj, key, {
+          get() {
+            if (active) {
+              dep.push(active)
+            }
+            return value
+          },
+          set(newValue) {
+            value = newValue
+            dep.forEach(watcher => {
+              watcher()
+            })
+          }
+        })
+      }
+    }
+    defineReactive(state)
+
+    const watcher = (fn) => {
+      active = fn;
+      fn()
+      active = null;
+    }
+    watcher(() => {
+      app.innerHTML = state.count
+    })
+    watcher(() => {
+      console.log(state.count)
+    })
+  </script>
+  
+</body>
+</html>
