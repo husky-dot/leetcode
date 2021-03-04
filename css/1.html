@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="ul-2">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <style>
+.ul-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+    width: 210px;
+  }
+  .ul-2:after {
+    content: '';
+    flex: auto;
+  }
+  .ul-2 .item {
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #2a7600;
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  </style>
+</body>
+</html>
